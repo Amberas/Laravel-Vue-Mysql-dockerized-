@@ -1,6 +1,6 @@
 ## Goal
 
-This project aims to integrate the Laravel web application framework with Vue.js, using the Laravel example-app as a foundation. The project is containerized using Docker, which facilitates efficient building, testing, and integration with MySQL PhpMyAdmin.
+This project aims to integrate the Laravel web application framework with Vue.js, using the Laravel example-app as a foundation. It employs Docker for containerization, specifically utilizing Laravel Sail, a light-weight command-line interface for interacting with Laravel's default Docker development environment. Additionally, the project provides PhpMyAdmin for enhanced database management.
 
 ## Installation
 
@@ -20,22 +20,22 @@ Docker enables the creation of isolated “containers” to run specific softwar
 * Modify the following parameters as needed:
 
 ```
-    MYSQL_DATABASE=your_db_name
-    MYSQL_USER=your_db_username
-    MYSQL_PASSWORD=your_db_password
+    DB_DATABASE=your_db
+    DB_USERNAME=your_db_username
+    DB_PASSWORD=your_db_password
 ```
 
 ### Client
-* Open the terminal and execute `docker-compose build` to initiate the container.
-* Continue with `docker-compose up` to start the application (use `docker-compose down` to stop it, this can also be done via the Docker desktop app).
+* Open the terminal and execute `./vendor/bin/sail up` to initiate the container.
+* Use `./vendor/bin/sail down` to stop it (this can also be done via the Docker desktop app).
 
 ### Server
 * Open a new terminal and navigate to your example-app directory.
 * Execute `npm run dev` (ensure you’re using an up-to-date node version, use `nvm use --lts` if necessary).
 * The terminal will notify you of the running Vite development server.
 
-* Access `localhost:8000` in your browser to view your running application.
-* Visit `localhost:8001` to access PhpMyAdmin, and enter your credentials (`MYSQL_USER` and `MYSQL_PASSWORD`).
+* Access `localhost` in your browser to view your running application.
+* Visit `localhost:8080` to access PhpMyAdmin, and enter your credentials (`DB_CONNECTION=mysql`, `DB_USERNAME` and `DB_PASSWORD`).
 
 
 
